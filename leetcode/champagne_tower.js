@@ -69,7 +69,7 @@ var champagneTower2 = function(poured, query_row, query_glass) {
     }
 
     recursive(0, 0, poured)
-    return tower;
+  
     if (!tower[query_row]) return 0;
     if (!tower[query_row][query_glass]) return 0;
     
