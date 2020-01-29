@@ -46,3 +46,29 @@ var addTwoNumbers = function(l1, l2) {
         }
     }
 };
+
+// more proper solution
+
+function addTwoNumbers(l1, l2) {
+
+  return addTwoLists(l1, l2)
+
+  function addTwoLists(l1, l2, remainer = 0) {
+    if (!l1 && !l2 && !remainer) {
+      return null
+    };
+
+    const sum = (l1 && l1.val || 0) + (l2 && l2.val || 0) + remainer;
+    const newRemainer = Math.floor(sum / 10);
+    const newVal = sum % 10;
+
+    const nextL1 = l1 ? l1.next : null;
+    const nextL2 = l2 ? l2.next : null;
+
+    return {
+      val: newVal,
+      next: addTwoLists(nextL1, nextL2, newRemainer)
+    }
+
+  }  
+}
